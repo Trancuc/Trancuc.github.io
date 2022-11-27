@@ -1,0 +1,32 @@
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>ComparisonValidator | Welcome to my blog!!!</title><meta name=viewport content="width=device-width,minimum-scale=1"><meta name=description content="ActiveRecord Validation được sử dung để validate dữ liệu của thụôc tính.
+Nhưng nếu chúng ta muốn so sánh các giá trị của thụôc tính thì ActiveRecord Validation không giải quyết được vấn đề này .
+Trước rails 7 chúng ta giải quyết vấn đề này bằng việc viết 1 custom validator
+Vd : Để kiểm tra xem ngày end_date có lớn hơn start_date không
+trước rails 7
+validate :end_date_is_after_start_date private def end_date_is_after_start_dateif end_date < start_date errors."><meta name=generator content="Hugo 0.107.0"><meta name=robots content="noindex, nofollow"><link rel=stylesheet href=/ananke/css/main.min.css><meta property="og:title" content="ComparisonValidator"><meta property="og:description" content="ActiveRecord Validation được sử dung để validate dữ liệu của thụôc tính.
+Nhưng nếu chúng ta muốn so sánh các giá trị của thụôc tính thì ActiveRecord Validation không giải quyết được vấn đề này .
+Trước rails 7 chúng ta giải quyết vấn đề này bằng việc viết 1 custom validator
+Vd : Để kiểm tra xem ngày end_date có lớn hơn start_date không
+trước rails 7
+validate :end_date_is_after_start_date private def end_date_is_after_start_dateif end_date < start_date errors."><meta property="og:type" content="article"><meta property="og:url" content="http://example.org/posts/-b430f5e8457e4e85a5d443a9362cb900/"><meta property="article:section" content="posts"><meta itemprop=name content="ComparisonValidator"><meta itemprop=description content="ActiveRecord Validation được sử dung để validate dữ liệu của thụôc tính.
+Nhưng nếu chúng ta muốn so sánh các giá trị của thụôc tính thì ActiveRecord Validation không giải quyết được vấn đề này .
+Trước rails 7 chúng ta giải quyết vấn đề này bằng việc viết 1 custom validator
+Vd : Để kiểm tra xem ngày end_date có lớn hơn start_date không
+trước rails 7
+validate :end_date_is_after_start_date private def end_date_is_after_start_dateif end_date < start_date errors."><meta itemprop=wordCount content="167"><meta itemprop=keywords content><meta name=twitter:card content="summary"><meta name=twitter:title content="ComparisonValidator"><meta name=twitter:description content="ActiveRecord Validation được sử dung để validate dữ liệu của thụôc tính.
+Nhưng nếu chúng ta muốn so sánh các giá trị của thụôc tính thì ActiveRecord Validation không giải quyết được vấn đề này .
+Trước rails 7 chúng ta giải quyết vấn đề này bằng việc viết 1 custom validator
+Vd : Để kiểm tra xem ngày end_date có lớn hơn start_date không
+trước rails 7
+validate :end_date_is_after_start_date private def end_date_is_after_start_dateif end_date < start_date errors."></head><body class="ma0 avenir bg-near-white"><header><div class=bg-black><nav class="pv3 ph3 ph4-ns" role=navigation><div class="flex-l justify-between items-center center"><a href=/ class="f3 fw2 hover-white no-underline white-90 dib">Welcome to my blog!!!</a><div class="flex-l items-center"><div class=ananke-socials></div></div></div></nav></div></header><main class=pb7 role=main><article class="flex-l flex-wrap justify-between mw8 center ph3"><header class="mt4 w-100"><aside class="instapaper_ignoref b helvetica tracked">POSTS</aside><div id=sharing class="mt3 ananke-socials"></div><h1 class="f1 athelas mt3 mb1">ComparisonValidator</h1></header><div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><ul><li><p>ActiveRecord Validation được sử dung để validate dữ liệu của thụôc tính.</p></li><li><p>Nhưng nếu chúng ta muốn so sánh các giá trị của thụôc tính thì ActiveRecord Validation không giải quyết được vấn đề này .</p></li><li><p>Trước rails 7 chúng ta giải quyết vấn đề này bằng việc viết 1 custom validator</p></li><li><p>Vd : Để kiểm tra xem ngày end_date có lớn hơn start_date không</p></li><li><p>trước rails 7</p></li></ul><pre tabindex=0><code>  validate :end_date_is_after_start_date
+
+  private
+
+  def end_date_is_after_start_dateif end_date &lt; start_date
+      errors.add(:end_date, &#39;cannot be before the start date&#39;)
+    end
+  end
+</code></pre><ul><li>nhưng từ rails 7 đã cũng cấp ComparisonValidator có thể giải quyết bài toán trên mà k cần viết 1 custom validator</li></ul><pre tabindex=0><code>  validates :end_date, comparison: { greater_than: :start_date }
+  # OR
+  validates_comparison_of :end_date, greater_than: :start_date
+</code></pre><ul><li>ComparisonValidator cũng cấp các tùy chọn so sánh như <code>greater_than</code>, <code>greater_than_or_equal_to</code>, <code>equal_to</code>, <code>less_than</code>, <code>less_than_or_equal_to</code> ,<code>other_than</code></li><li>Môix tùy chọn này có thể dùng với một giá trị, proc hoặc symbol</li><li>có thể sử dụng nhiều option compare cùng lúc</li><li>ComparisonValidator cho phép so sánh với numeric, date, string..</li></ul><ul class=pa0></ul><div class="mt6 instapaper_ignoref"></div></div><aside class="w-30-l mt6-l"></aside></article></main><footer class="bg-black bottom-0 w-100 pa3" role=contentinfo><div class="flex justify-between"><a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href=http://example.org/>&copy; Welcome to my blog!!! 2022</a><div><div class=ananke-socials></div></div></div></footer></body></html>
